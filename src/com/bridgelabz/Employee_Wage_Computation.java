@@ -12,21 +12,20 @@ public class Employee_Wage_Computation {
         int emp_wage=0;
         Random r= new Random();
         int current=r.nextInt(3);
-        if(full_time==current)
-        {
-            System.out.println("employee is present full day");
-            emp_hr=8;
+        switch (current) {
+            case full_time:
+                System.out.println("employee is present full day");
+                emp_hr=8;
+                break;
+            case part_time:
+                System.out.println("employee is present half day");
+                emp_hr=4;
+                break;
 
-        }
-        else if(part_time==current)
-        {
-            System.out.println("employee is present part time");
-            emp_hr=4;
-        }
-        else
-        {
-            System.out.println("employee is absent");
-            emp_hr=0;
+            default:
+                System.out.println("employee is absent");
+                emp_hr=0;
+                break;
         }
         emp_wage=emp_hr*Daily_wage_per_hour;
         System.out.println("total wage of employee is "+emp_wage);
