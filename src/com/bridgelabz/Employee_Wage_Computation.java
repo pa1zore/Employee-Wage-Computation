@@ -4,11 +4,23 @@ import java.util.Random;
 
 public class Employee_Wage_Computation {
     //varibles
-    final static int full_time=1;
-    final static int part_time=2;
+    public static final int full_time=1;
+    public static final int part_time=2;
+private final String company;
+private  final int empRatePerHour;
+private final int numberOfWorkingDays;
+private final int maxHoursPerMonth;
+ private int totalEmpWage;
+//constructor for initialising values
+  public  Employee_Wage_Computation(String company, int empRatePerHour, int numberOfWorkingDays, int maxHoursPerMonth)
+   {
+       this.company=company;
+       this.empRatePerHour=empRatePerHour;
+       this.maxHoursPerMonth=maxHoursPerMonth;
+       this.numberOfWorkingDays = numberOfWorkingDays;
 
-   //creating  method to calculate total wage of employee
-    public static int compute(String company,int empRatePerHour,int numberOfWorkingHours,int maxHoursPerMonth) {
+   }
+    public void compute() {
         //declearing and initialising varibles with 0
         int empHr=0;
         //int empWwage=0;
@@ -16,7 +28,7 @@ public class Employee_Wage_Computation {
         int totalWorkingDays=0;
         // 20 iterations for working days in month
         // iterations goes on tatal hours is 100 && total working days is 200;
-        while(totalEmpHrs<=maxHoursPerMonth && totalWorkingDays< numberOfWorkingHours)
+        while(totalEmpHrs<=maxHoursPerMonth && totalWorkingDays< numberOfWorkingDays)
         {
             totalWorkingDays++;
             //creating object of random class
@@ -42,18 +54,29 @@ public class Employee_Wage_Computation {
 
 
             //printing total working days on console with hours
-            System.out.println("Day#: "+totalWorkingDays+" Emp Hr: "+empHr);
+            System.out.println("Day: "+totalWorkingDays+" Emp Hr: "+empHr);
 
         }
         //calculating total employees wage
-        int totalEmpWage=totalEmpHrs*empRatePerHour;
+         totalEmpWage=totalEmpHrs*empRatePerHour;
         // printing total wage 
-        System.out.println("total employee wage for company :" +company+" is: " +totalEmpWage);
-        return totalEmpWage;
+      //  System.out.println("total employee wage for company :" +company+" is: " +totalEmpWage);
+
+
     }
+    public String toString()
+    {
+        return "total employee wage for company"+company+" is "+totalEmpWage;
+    }
+
     public static void main(String[] args) {
 
-        compute("relience",20,2 ,10);
-        compute("tata",22,4 ,20);
+       Employee_Wage_Computation dmart= new Employee_Wage_Computation("dmart",20,2,10);
+        Employee_Wage_Computation tata= new Employee_Wage_Computation("tata",10,4,20);
+        dmart.compute();
+        System.out.println(dmart);
+        tata.compute();
+        System.out.println(tata);
+
     }
 }
