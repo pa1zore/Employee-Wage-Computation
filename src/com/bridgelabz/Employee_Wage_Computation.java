@@ -6,11 +6,9 @@ public class Employee_Wage_Computation {
     //varibles
     final static int full_time=1;
     final static int part_time=2;
-    final static int Num_of_working_day=20;
-    final static int Daily_wage_per_hour=20;
-    final static int Max_hrs_in_month=100;
+
    //creating  method to calculate total wage of employee
-    public static int compute() {
+    public static int compute(String company,int empRatePerHour,int numberOfWorkingHours,int maxHoursPerMonth) {
         //declearing and initialising varibles with 0
         int empHr=0;
         //int empWwage=0;
@@ -18,7 +16,7 @@ public class Employee_Wage_Computation {
         int totalWorkingDays=0;
         // 20 iterations for working days in month
         // iterations goes on tatal hours is 100 && total working days is 200;
-        while(totalEmpHrs<=Max_hrs_in_month && totalWorkingDays< Num_of_working_day)
+        while(totalEmpHrs<=maxHoursPerMonth && totalWorkingDays< numberOfWorkingHours)
         {
             totalWorkingDays++;
             //creating object of random class
@@ -44,16 +42,18 @@ public class Employee_Wage_Computation {
 
 
             //printing total working days on console with hours
-            System.out.println("Day#: "+totalWorkingDays+"Emp Hr: "+empHr);
+            System.out.println("Day#: "+totalWorkingDays+" Emp Hr: "+empHr);
 
         }
         //calculating total employees wage
-        int totalEmpWage=totalEmpHrs*Daily_wage_per_hour;
+        int totalEmpWage=totalEmpHrs*empRatePerHour;
         // printing total wage 
-        System.out.println("total employee wage :" + totalEmpWage);
+        System.out.println("total employee wage for company :" +company+" is: " +totalEmpWage);
         return totalEmpWage;
     }
     public static void main(String[] args) {
-        compute();
+
+        compute("relience",20,2 ,10);
+        compute("tata",22,4 ,20);
     }
 }
