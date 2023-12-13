@@ -30,16 +30,16 @@ class CompanyEmpWage {
     }
 }
 
-public class EmpWageBuilderArray {
+public class Employee_Wage_Computation {
     // same through out program
     public static final int IS_FULL_TIME = 2;
     public static final int IS_PART_TIME = 1;
     // number of company can be added
-    private int numOfCompany = 0;
+    private int numOfCompany =  0;
     // declearing array to store value of different comapany
     private CompanyEmpWage[] companyEmpWageArray;
 
-    public EmpWageBuilderArray() {
+    public Employee_Wage_Computation() {
         companyEmpWageArray = new CompanyEmpWage[5];
     }
     //sending parameters to companyEmpWage constructor
@@ -87,7 +87,7 @@ public class EmpWageBuilderArray {
 
     public static void main(String[] args) {
         //creating object of EmpWageBuilderArray and sending argument to constructor
-        EmpWageBuilderArray empWageBuilder = new EmpWageBuilderArray();
+        Employee_Wage_Computation empWageBuilder = new Employee_Wage_Computation();
 
         empWageBuilder.addCompanyEmpWage("Dmart", 20, 2, 10);
         empWageBuilder.addCompanyEmpWage("Relience", 10, 4, 20);
